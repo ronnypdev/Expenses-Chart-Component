@@ -1,10 +1,11 @@
+import Chart from "./components/Chart"
+
 function App() {
 
   return (
     <>
-      <main>
-        <h1 className="text-3xl font-bold underline">Keep Track of your finances</h1>
-
+      <main className="h-full max-container flex justify-center items-center">
+        <Chart />
       </main>
     </>
   )
