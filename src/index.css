@@ -35,4 +35,12 @@
     max-width: 100%;
     margin: 0 auto;
   }
+
+  .tooltip {
+    @apply invisible absolute;
+  }
+
+  .has-tooltip:hover .tooltip {
+    @apply visible z-50;
+  }
 }

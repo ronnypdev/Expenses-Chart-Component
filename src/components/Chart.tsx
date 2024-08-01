@@ -27,11 +27,13 @@ export default function Chart() {
               <div className="w-[50.365px] h-[100px] bg-softRed hover:opacity-55 flex-shrink-0 rounded-[5px] cursor-pointer"></div>
               <p className="font-DMsans text-[15px] text-darkBrown leading-normal font-normal lowercase mt-2">tue</p>
             </div>
-            <div className="flex flex-col justify-between items-center">
+            <div className="flex flex-col justify-between items-center has-tooltip">
+              <span className="tooltip rounded-[5px] shadow-lg p-1 bg-darkBrown font-DMsans text-lg text-paleOrange leading-normal font-bold -mt-10">$52.36</span>
               <div className="w-[50.365px] h-[150px] bg-cyan hover:opacity-55 flex-shrink-0 rounded-[5px] cursor-pointer"></div>
               <p className="font-DMsans text-[15px] text-darkBrown leading-normal font-normal lowercase mt-2">wed</p>
             </div>
-            <div className="flex flex-col justify-between items-center">
+            <div className="flex flex-col justify-between items-center has-tooltip">
+              <span className="tooltip rounded-[5px] shadow-lg p-1 bg-darkBrown font-DMsans text-lg text-paleOrange leading-normal font-bold -mt-10">$31.07</span>
               <div className="w-[50.365px] h-[89px] bg-softRed hover:opacity-55 flex-shrink-0 rounded-[5px] cursor-pointer"></div>
               <p className="font-DMsans text-[15px] text-darkBrown leading-normal font-normal lowercase mt-2">thu</p>
             </div>
