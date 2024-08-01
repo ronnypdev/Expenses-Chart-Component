@@ -1,11 +1,12 @@
-import Chart from "./components/Chart"
+import Chart from "./components/Chart";
+import { chartData } from "./constants";
 
 function App() {
 
   return (
     <>
       <main className="h-full max-container flex justify-center items-center">
-        <Chart />
+        <Chart chart={chartData} />
       </main>
     </>
   )

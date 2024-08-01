@@ -1,6 +1,16 @@
 import  chartLogo from "../assets/images/logo.svg"
 
-export default function Chart() {
+type chartData = {
+  chart: (string | number)[],
+  style?: React.CSSProperties
+}
+
+export default function Chart({ chart }: chartData) {
+
+  // const chartDimension = {
+  //   height: `${chart.amount}px`
+  // }
+
   return (
     <>
       <div className="w-[540px] h-[660px] max-w-full">
@@ -19,42 +29,25 @@ export default function Chart() {
           <h4 className="font-DMsans text-[32px] text-darkBrown leading-normal font-bold mb-10">Spending - Last 7 days</h4>
 
           <div className="chart flex justify-between items-baseline flex-shrink-0 border-b-2 border-cream pb-5">
-            <div className="flex flex-col justify-between items-center">
-              <div className="w-[50.365px] h-[50px] bg-softRed hover:opacity-55 flex-shrink-0 rounded-[5px] cursor-pointer"></div>
-              <p className="font-DMsans text-[15px] text-darkBrown leading-normal font-normal lowercase mt-2">mon</p>
-            </div>
-            <div className="flex flex-col justify-between items-center">
-              <div className="w-[50.365px] h-[100px] bg-softRed hover:opacity-55 flex-shrink-0 rounded-[5px] cursor-pointer"></div>
-              <p className="font-DMsans text-[15px] text-darkBrown leading-normal font-normal lowercase mt-2">tue</p>
-            </div>
-            <div className="flex flex-col justify-between items-center has-tooltip">
-              <span className="tooltip rounded-[5px] shadow-lg p-1 bg-darkBrown font-DMsans text-lg text-paleOrange leading-normal font-bold -mt-10">$52.36</span>
-              <div className="w-[50.365px] h-[150px] bg-cyan hover:opacity-55 flex-shrink-0 rounded-[5px] cursor-pointer"></div>
-              <p className="font-DMsans text-[15px] text-darkBrown leading-normal font-normal lowercase mt-2">wed</p>
-            </div>
-            <div className="flex flex-col justify-between items-center has-tooltip">
-              <span className="tooltip rounded-[5px] shadow-lg p-1 bg-darkBrown font-DMsans text-lg text-paleOrange leading-normal font-bold -mt-10">$31.07</span>
-              <div className="w-[50.365px] h-[89px] bg-softRed hover:opacity-55 flex-shrink-0 rounded-[5px] cursor-pointer"></div>
-              <p className="font-DMsans text-[15px] text-darkBrown leading-normal font-normal lowercase mt-2">thu</p>
-            </div>
-            <div className="flex flex-col justify-between items-center">
-              <div className="w-[50.365px] h-[67px] bg-softRed hover:opacity-55 flex-shrink-0 rounded-[5px] cursor-pointer"></div>
-              <p className="font-DMsans text-[15px] text-darkBrown leading-normal font-normal lowercase mt-2">fri</p>
-            </div>
-            <div className="flex flex-col justify-between items-center">
-              <div className="w-[50.365px] h-[124px] bg-softRed hover:opacity-55 flex-shrink-0 rounded-[5px] cursor-pointer"></div>
-              <p className="font-DMsans text-[15px] text-darkBrown leading-normal font-normal lowercase mt-2">sat</p>
-            </div>
-            <div className="flex flex-col justify-between items-center">
-              <div className="w-[50.365px] h-[73px] bg-softRed hover:opacity-55 flex-shrink-0 rounded-[5px] cursor-pointer"></div>
-              <p className="font-DMsans text-[15px] text-darkBrown leading-normal font-normal lowercase mt-2">sun</p>
-            </div>
+            {chart.map((chartData) => (
+              <div className="flex flex-col justify-between items-center has-tooltip">
+                <span className="tooltip rounded-[5px] shadow-lg p-1 bg-darkBrown font-DMsans text-lg text-paleOrange leading-normal font-bold -mt-10">
+                  ${chartData.amount}
+                </span>
+                <div className={`w-[50.365px] hover:opacity-55 flex-shrink-0 rounded-[5px] cursor-pointer 
+                ${chartData.day === "wed" ? "bg-cyan" : "bg-softRed"}`}
+                  style={
+                  { height: `${chartData.amount}px` }}></div>
+                <p className="font-DMsans text-[15px] text-darkBrown leading-normal font-normal lowercase mt-2">{chartData.day}</p>
+              </div>
+            ))}
+
           </div>{/*End chart inner container*/}
 
           <div className="mt-8 flex justify-between items-center">
             <div>
               <p className="font-DMsans text-lg text-mediumBrown leading-normal font-normal">Total this month</p>
-              <h2 className="font-DMsans text-[48px] text-darkBrown leading-normal font-bold">$478.33</h2>
+              <h2 className="font-DMsans text-[48px] text-darkBrown leading-normal font-bold">$227.94</h2>
             </div>
             <div>
               <p className="font-DMsans text-lg text-darkBrown leading-normal font-bold">+2.4%</p>
