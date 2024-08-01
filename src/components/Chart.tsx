@@ -1,14 +1,15 @@
 import  chartLogo from "../assets/images/logo.svg"
 
 interface IchartData {
-  
+  chart: (string | number)[],
   style?: React.CSSProperties,
   amount: number,
   day: string
 }
 
 interface chartStats {
-  chartData: IchartData[]
+  chartData: IchartData[],
+  chart: []
 }
 
 export default function Chart({ chart }: chartStats) {
@@ -31,7 +32,7 @@ export default function Chart({ chart }: chartStats) {
           <h4 className="font-DMsans text-[32px] text-darkBrown leading-normal font-bold mb-10">Spending - Last 7 days</h4>
 
           <div className="chart flex justify-between items-baseline flex-shrink-0 border-b-2 border-cream pb-5">
-            {chart.map((chart: IchartData, index) => (
+            {chart.map((chart: IchartData, index: number) => (
               <div key={index} className="flex flex-col justify-between items-center has-tooltip">
                 <span className="tooltip rounded-[5px] shadow-lg p-1 bg-darkBrown font-DMsans text-lg text-paleOrange leading-normal font-bold -mt-10">
                   ${chart.amount}
