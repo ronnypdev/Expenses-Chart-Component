@@ -1,15 +1,17 @@
 import  chartLogo from "../assets/images/logo.svg"
 
-type chartData = {
-  chart: (string | number)[],
-  style?: React.CSSProperties
+interface IchartData {
+  
+  style?: React.CSSProperties,
+  amount: number,
+  day: string
 }
 
-export default function Chart({ chart }: chartData) {
+interface chartStats {
+  chartData: IchartData[]
+}
 
-  // const chartDimension = {
-  //   height: `${chart.amount}px`
-  // }
+export default function Chart({ chart }: chartStats) {
 
   return (
     <>
@@ -29,16 +31,16 @@ export default function Chart({ chart }: chartData) {
           <h4 className="font-DMsans text-[32px] text-darkBrown leading-normal font-bold mb-10">Spending - Last 7 days</h4>
 
           <div className="chart flex justify-between items-baseline flex-shrink-0 border-b-2 border-cream pb-5">
-            {chart.map((chartData) => (
-              <div className="flex flex-col justify-between items-center has-tooltip">
+            {chart.map((chart: IchartData, index) => (
+              <div key={index} className="flex flex-col justify-between items-center has-tooltip">
                 <span className="tooltip rounded-[5px] shadow-lg p-1 bg-darkBrown font-DMsans text-lg text-paleOrange leading-normal font-bold -mt-10">
-                  ${chartData.amount}
+                  ${chart.amount}
                 </span>
-                <div className={`w-[50.365px] hover:opacity-55 flex-shrink-0 rounded-[5px] cursor-pointer 
-                ${chartData.day === "wed" ? "bg-cyan" : "bg-softRed"}`}
+                <div className={`w-[50.365px] hover:opacity-55 flex-shrink-0 rounded-[5px] cursor-pointer
+                ${chart.day === "wed" ? "bg-cyan" : "bg-softRed"}`}
                   style={
-                  { height: `${chartData.amount}px` }}></div>
-                <p className="font-DMsans text-[15px] text-darkBrown leading-normal font-normal lowercase mt-2">{chartData.day}</p>
+                  { height: `${chart.amount}px` }}></div>
+                <p className="font-DMsans text-[15px] text-darkBrown leading-normal font-normal lowercase mt-2">{chart.day}</p>
               </div>
             ))}
 
